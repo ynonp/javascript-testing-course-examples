@@ -1,0 +1,59 @@
+.bpinput {
+  float: left;
+
+}
+
+.bpinput-digit {  
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: 2px solid gray;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.bpinput-digit:focus {
+  background: #c3c3c3;
+}
+
+.half {
+  width: 40%;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.row {
+  clear:both;
+  margin-top: 20px;
+  overflow:auto;
+}
+
+
+.bpresult {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+
+.bpresult .marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.bpresult .bull {
+  background: green;
+}
+
+.bpresult .none {
+  background: gray;
+}
+
+.bpresult .cow {
+  background: orange;
+}
+
