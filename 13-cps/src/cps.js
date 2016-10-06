@@ -1,38 +1,44 @@
-export default class CPS {
-  constructor(el) {
-    el.innerHTML = `
-      <p class="display">0</p>
-      <button class="btn-inc">Click</button>
-    `;
-    this.clicked = this.clicked.bind(this);
-    this.ticked  = this.ticked.bind(this);
+import $ from 'jquery';
 
-    this.rootEl    = el;
-    this.btnEl     = el.querySelector('.btn-inc');
-    this.displayEl = el.querySelector('.display');
-
-    this.ticks  = 0;
+export default class Cps {
+  constructor() {
     this.clicks = 0;
-    this.bindEventHandlers();
+    this.ticks  = 0;
+    setInterval(this.tick.bind(this), 1000);
+
+    this.click = this.click.bind(this);
   }
 
-  clicked() {
+  click() {
     this.clicks++;
-    this.update();
+    this.writeValue();
   }
 
-  ticked() {
+  tick() {
     this.ticks++;
-    this.update();
+    this.writeValue();
   }
 
-  update() {
-    this.displayEl.textContent = Math.round(this.clicks / this.ticks);
+  writeValue() {
+    this.panelEl.text(Math.floor(this.clicks / this.ticks));
   }
 
-  bindEventHandlers() {
-    this.btnEl.addEventListener('click', this.clicked);
-    setInterval(this.ticked, 1000);
+  initDOM(el) {
+    this.el = $(el);
+    this.el.html(`
+      <button>Click Here</button>
+      <p class="panel">0</p>
+    `);
+    this.btnEl   = this.el.find('button');
+    this.panelEl = this.el.find('.panel');
+    this.btnEl.on('click', this.click);
   }
 }
+
+
+
+
+
+
+
 

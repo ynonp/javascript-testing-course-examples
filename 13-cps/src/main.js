@@ -1,5 +1,4 @@
 import Cps from 'cps';
 
-const main = document.querySelector('main');
-new Cps(main);
-
+const cps = new Cps();
+cps.initDOM(document.querySelector('main'));

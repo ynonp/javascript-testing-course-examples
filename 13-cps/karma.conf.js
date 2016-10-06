@@ -3,6 +3,7 @@
 
 var webpackConfig = require('./webpack.config.js');
 webpackConfig.devtool = 'inline-source-map';
+webpackConfig.resolve.modulesDirectories.push('spec');
 webpackConfig.module.loaders.push({
   test: /\.js$/,
   exclude: /(spec|node_modules|bower_components)/,
